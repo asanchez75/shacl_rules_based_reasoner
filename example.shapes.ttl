@@ -66,48 +66,7 @@ example:custom1
   sh:targetClass owl:Class ;
   sh:targetSubjectsOf rdfs:subClassOf ;
 .
-example:custom10
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:subClassOf rdfs:Resource ;
-  sh:rule [
-      rdf:type sh:SPARQLRule ;
-      sh:construct """
-      PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
-      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-      CONSTRUCT {
-       ?a mcf:PartOf ?b.
-      }
-      WHERE {
-      ?a mcf:PartOf ?c.
-      ?c mcf:PartOf ?b.
-      }
-      """ ;
-    ] ;
-  sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:PartOf ;
-.
-example:custom11
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:subClassOf rdfs:Resource ;
-  sh:rule [
-      rdf:type sh:SPARQLRule ;
-      sh:construct """
-      PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
-      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-      CONSTRUCT {
-       ?a rdfs:subClassOf ?b.
-      }
-      WHERE {
-      ?a rdfs:subClassOf ?c.
-      ?c rdfs:subClassOf ?b.
-      }
-      """ ;
-    ] ;
-  sh:targetClass owl:Class ;
-  sh:targetSubjectsOf rdfs:subClassOf ;
-.
+
 example:custom2
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
@@ -118,10 +77,10 @@ example:custom2
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a mcf:IsInvolvedIn ?b.
+       $this mcf:IsInvolvedIn ?b.
       }
       WHERE {
-      ?a mcf:IsInvolvedIn ?c.
+      $this mcf:IsInvolvedIn ?c.
       ?c rdfs:subClassOf ?b.
       }
       """ ;
@@ -139,10 +98,10 @@ example:custom3
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a rdfs:subClassOf ?b.
+       $this rdfs:subClassOf ?b.
       }
       WHERE {
-      ?a mcf:LeftSubClassOf ?b.
+      $this mcf:LeftSubClassOf ?b.
       }
       """ ;
     ] ;
@@ -159,10 +118,10 @@ example:custom4
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a rdfs:subClassOf ?b.
+       $this rdfs:subClassOf ?b.
       }
       WHERE {
-      ?a mcf:RightSubClassOf ?b.
+      $this mcf:RightSubClassOf ?b.
       }
       """ ;
     ] ;
@@ -179,10 +138,10 @@ example:custom5
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a mcf:ContributesTo ?b.
+       $this mcf:ContributesTo ?b.
       }
       WHERE {
-      ?a mcf:HasFunction ?b.
+      $this mcf:HasFunction ?b.
       }
       """ ;
     ] ;
@@ -199,10 +158,10 @@ example:custom6
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a mcf:ContributesTo ?b.
+       $this mcf:ContributesTo ?b.
       }
       WHERE {
-      ?a mcf:ContributesTo ?c.
+      $this mcf:ContributesTo ?c.
       ?c mcf:IsInvolvedIn ?b.
       }
       """ ;
@@ -220,10 +179,10 @@ example:custom7
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a mcf:ContributesTo ?b.
+       $this mcf:ContributesTo ?b.
       }
       WHERE {
-      ?a mcf:ContributesTo ?c.
+      $this mcf:ContributesTo ?c.
       ?c rdfs:subClassOf ?b.
       }
       """ ;
@@ -241,10 +200,10 @@ example:custom8
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a mcf:InsertOn ?b.
+       $this mcf:InsertOn ?b.
       }
       WHERE {
-      ?a mcf:InsertOn ?c.
+      $this mcf:InsertOn ?c.
       ?c mcf:PartOf ?b.
       }
       """ ;
@@ -262,10 +221,10 @@ example:custom9
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a mcf:IsInvolvedIn ?b.
+       $this mcf:IsInvolvedIn ?b.
       }
       WHERE {
-      ?a mcf:IsInvolvedIn ?c.
+      $this mcf:IsInvolvedIn ?c.
       ?c mcf:IsInvolvedIn ?b.
       }
       """ ;
@@ -273,6 +232,50 @@ example:custom9
   sh:targetClass owl:Class ;
   sh:targetSubjectsOf mcf:IsInvolvedIn ;
 .
+
+example:custom10
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:rule [
+      rdf:type sh:SPARQLRule ;
+      sh:construct """
+      PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      CONSTRUCT {
+       $this mcf:PartOf ?b.
+      }
+      WHERE {
+      $this mcf:PartOf ?c.
+      ?c mcf:PartOf ?b.
+      }
+      """ ;
+    ] ;
+  sh:targetClass owl:Class ;
+  sh:targetSubjectsOf mcf:PartOf ;
+.
+example:custom11
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:rule [
+      rdf:type sh:SPARQLRule ;
+      sh:construct """
+      PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      CONSTRUCT {
+       $this rdfs:subClassOf ?b.
+      }
+      WHERE {
+      $this rdfs:subClassOf ?c.
+      ?c rdfs:subClassOf ?b.
+      }
+      """ ;
+    ] ;
+  sh:targetClass owl:Class ;
+  sh:targetSubjectsOf rdfs:subClassOf ;
+.
+
 mcf:InsertOn
   rdf:type owl:ObjectProperty ;
 .
