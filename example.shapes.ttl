@@ -76,12 +76,14 @@ example:custom2
       sh:construct """
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX owl: <http://www.w3.org/2002/07/owl#>
       CONSTRUCT {
        $this mcf:IsInvolvedIn ?b.
       }
       WHERE {
       $this mcf:IsInvolvedIn ?c.
       ?c rdfs:subClassOf ?b.
+      FILTER (?b != owl:Thing)
       }
       """ ;
     ] ;
