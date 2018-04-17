@@ -55,11 +55,11 @@ example:custom1
       PREFIX mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       CONSTRUCT {
-       ?a mcf:InsertOn ?b.
+        $this mcf:InsertOn ?b.
       }
       WHERE {
-      ?a rdfs:subClassOf ?c.
-      ?c mcf:InsertOn ?b.
+        $this rdfs:subClassOf ?c.
+        ?c mcf:InsertOn ?b.
       }
       """ ;
     ] ;
