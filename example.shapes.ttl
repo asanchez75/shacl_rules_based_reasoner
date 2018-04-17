@@ -27,6 +27,10 @@ example:Thing_B
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
+example:Thing_B_1
+  rdf:type owl:Class ;
+  rdfs:subClassOf example:Thing_B ;
+.
 example:Thing_C
   rdf:type owl:Class ;
   mcf:InsertOn example:Thing_B ;
@@ -38,6 +42,7 @@ example:Thing_D
 .
 example:Thing_E
   rdf:type owl:Class ;
+  mcf:IsInvolvedIn example:Thing_B_1 ;
   rdfs:subClassOf example:Thing_D ;
 .
 example:custom1
@@ -82,7 +87,6 @@ example:custom10
   sh:targetClass owl:Class ;
   sh:targetSubjectsOf mcf:PartOf ;
 .
-
 example:custom11
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
@@ -104,8 +108,6 @@ example:custom11
   sh:targetClass owl:Class ;
   sh:targetSubjectsOf rdfs:subClassOf ;
 .
-
-
 example:custom2
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
@@ -271,8 +273,9 @@ example:custom9
   sh:targetClass owl:Class ;
   sh:targetSubjectsOf mcf:IsInvolvedIn ;
 .
-
-
 mcf:InsertOn
+  rdf:type owl:ObjectProperty ;
+.
+mcf:IsInvolvedIn
   rdf:type owl:ObjectProperty ;
 .
