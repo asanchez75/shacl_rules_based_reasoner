@@ -32,6 +32,14 @@ example:Thing_C
   mcf:InsertOn example:Thing_B ;
   rdfs:subClassOf owl:Thing ;
 .
+example:Thing_D
+  rdf:type owl:Class ;
+  rdfs:subClassOf example:Thing_A ;
+.
+example:Thing_E
+  rdf:type owl:Class ;
+  rdfs:subClassOf example:Thing_D ;
+.
 example:custom1
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
