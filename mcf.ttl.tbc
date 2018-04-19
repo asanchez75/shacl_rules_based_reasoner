@@ -15,6 +15,4 @@
       rdf:type <http://www.w3.org/ns/shacl#TopSHACL> ;
       composite:index "0"^^xsd:int ;
     ] ;
-  inference:inferredMode "true"^^xsd:boolean ;
-  inference:iterativeMode "true"^^xsd:boolean ;
 ].

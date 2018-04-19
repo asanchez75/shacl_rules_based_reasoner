@@ -1,85 +1,22 @@
-# baseURI: http://example.org
+# baseURI: http://mcf/shapes
 # imports: http://datashapes.org/dash
-# prefix: example
+# prefix: mcfsh
 
 @prefix dash: <http://datashapes.org/dash#> .
-@prefix example: <http://example.org#> .
-@prefix mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#> .
+@prefix example: <http://example#> .
+@prefix mcfsh: <http://mcf/shapes#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org>
+<http://mcf/shapes>
   rdf:type owl:Ontology ;
   owl:imports <http://datashapes.org/dash> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
-example:InsertOn
-  rdf:type owl:ObjectProperty ;
-.
-example:Thing_1
-  rdf:type owl:Class ;
-  mcf:LeftSubClassOf example:Thing_2 ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_2
-  rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_3
-  rdf:type owl:Class ;
-  mcf:RightSubClassOf example:Thing_2 ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_4
-  rdf:type owl:Class ;
-  mcf:HasFunction example:Thing_5 ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_5
-  rdf:type owl:Class ;
-  mcf:IsInvolvedIn example:Thing_6 ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_6
-  rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_7
-  rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_A
-  rdf:type owl:Class ;
-  rdfs:subClassOf example:Thing_C ;
-.
-example:Thing_B
-  rdf:type owl:Class ;
-  mcf:IsInvolvedIn example:Thing_3 ;
-  mcf:PartOf example:Thing_7 ;
-  rdfs:subClassOf example:Thing_6 ;
-.
-example:Thing_B_1
-  rdf:type owl:Class ;
-  rdfs:subClassOf example:Thing_B ;
-.
-example:Thing_C
-  rdf:type owl:Class ;
-  mcf:InsertOn example:Thing_B ;
-  rdfs:subClassOf owl:Thing ;
-.
-example:Thing_D
-  rdf:type owl:Class ;
-  rdfs:subClassOf example:Thing_A ;
-.
-example:Thing_E
-  rdf:type owl:Class ;
-  mcf:IsInvolvedIn example:Thing_B_1 ;
-  rdfs:subClassOf example:Thing_D ;
-.
-example:custom1
+mcfsh:custom1
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -100,7 +37,7 @@ example:custom1
   sh:targetClass owl:Class ;
   sh:targetSubjectsOf rdfs:subClassOf ;
 .
-example:custom10
+mcfsh:custom10
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -120,7 +57,7 @@ example:custom10
     ] ;
   sh:targetClass owl:Class ;
 .
-example:custom11
+mcfsh:custom11
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -141,7 +78,7 @@ example:custom11
   sh:targetClass owl:Class ;
   sh:targetSubjectsOf rdfs:subClassOf ;
 .
-example:custom2
+mcfsh:custom2
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -162,9 +99,9 @@ example:custom2
       """ ;
     ] ;
   sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:IsInvolvedIn ;
+  sh:targetSubjectsOf <http://www.mycorporisfabrica.org/ontology/mcf.owl#IsInvolvedIn> ;
 .
-example:custom3
+mcfsh:custom3
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -182,9 +119,9 @@ example:custom3
       """ ;
     ] ;
   sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:LeftSubClassOf ;
+  sh:targetSubjectsOf <http://www.mycorporisfabrica.org/ontology/mcf.owl#LeftSubClassOf> ;
 .
-example:custom4
+mcfsh:custom4
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -203,7 +140,7 @@ example:custom4
     ] ;
   sh:targetClass owl:Class ;
 .
-example:custom5
+mcfsh:custom5
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -223,9 +160,9 @@ example:custom5
       """ ;
     ] ;
   sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:HasFunction ;
+  sh:targetSubjectsOf <http://www.mycorporisfabrica.org/ontology/mcf.owl#HasFunction> ;
 .
-example:custom6
+mcfsh:custom6
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -244,9 +181,9 @@ example:custom6
       """ ;
     ] ;
   sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:ContributesTo ;
+  sh:targetSubjectsOf <http://www.mycorporisfabrica.org/ontology/mcf.owl#ContributesTo> ;
 .
-example:custom7
+mcfsh:custom7
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -267,9 +204,9 @@ example:custom7
       """ ;
     ] ;
   sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:ContributesTo ;
+  sh:targetSubjectsOf <http://www.mycorporisfabrica.org/ontology/mcf.owl#ContributesTo> ;
 .
-example:custom8
+mcfsh:custom8
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -288,9 +225,9 @@ example:custom8
       """ ;
     ] ;
   sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:InsertOn ;
+  sh:targetSubjectsOf <http://www.mycorporisfabrica.org/ontology/mcf.owl#InsertOn> ;
 .
-example:custom9
+mcfsh:custom9
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:subClassOf rdfs:Resource ;
@@ -309,23 +246,5 @@ example:custom9
       """ ;
     ] ;
   sh:targetClass owl:Class ;
-  sh:targetSubjectsOf mcf:IsInvolvedIn ;
-.
-mcf:HasFunction
-  rdf:type owl:ObjectProperty ;
-.
-mcf:InsertOn
-  rdf:type owl:ObjectProperty ;
-.
-mcf:IsInvolvedIn
-  rdf:type owl:ObjectProperty ;
-.
-mcf:LeftSubClassOf
-  rdf:type owl:ObjectProperty ;
-.
-mcf:PartOf
-  rdf:type owl:ObjectProperty ;
-.
-mcf:RightSubClassOf
-  rdf:type owl:ObjectProperty ;
+  sh:targetSubjectsOf <http://www.mycorporisfabrica.org/ontology/mcf.owl#IsInvolvedIn> ;
 .

@@ -1,0 +1,98 @@
+# baseURI: http://www.mycorporisfabrica.org/ontology/mcf.owl#
+# imports: http://mcf/shapes
+# prefix: mcf
+
+@prefix example: <http://example.org#> .
+@prefix mcf: <http://www.mycorporisfabrica.org/ontology/mcf.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mcfsh: <http://mcf/shapes#> .
+
+mcfsh:InsertOn
+  rdf:type owl:ObjectProperty ;
+.
+example:Thing_1
+  rdf:type owl:Class ;
+  mcf:LeftSubClassOf example:Thing_2 ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_2
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_3
+  rdf:type owl:Class ;
+  mcf:RightSubClassOf example:Thing_2 ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_4
+  rdf:type owl:Class ;
+  mcf:HasFunction example:Thing_5 ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_5
+  rdf:type owl:Class ;
+  mcf:IsInvolvedIn example:Thing_6 ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_6
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_7
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_A
+  rdf:type owl:Class ;
+  rdfs:subClassOf example:Thing_C ;
+.
+example:Thing_B
+  rdf:type owl:Class ;
+  mcf:IsInvolvedIn example:Thing_3 ;
+  mcf:PartOf example:Thing_7 ;
+  rdfs:subClassOf example:Thing_6 ;
+.
+example:Thing_B_1
+  rdf:type owl:Class ;
+  rdfs:subClassOf example:Thing_B ;
+.
+example:Thing_C
+  rdf:type owl:Class ;
+  mcf:InsertOn example:Thing_B ;
+  rdfs:subClassOf owl:Thing ;
+.
+example:Thing_D
+  rdf:type owl:Class ;
+  rdfs:subClassOf example:Thing_A ;
+.
+example:Thing_E
+  rdf:type owl:Class ;
+  mcf:IsInvolvedIn example:Thing_B_1 ;
+  rdfs:subClassOf example:Thing_D ;
+.
+<http://www.mycorporisfabrica.org/ontology/mcf.owl#>
+  rdf:type owl:Ontology ;
+  owl:imports <http://mcf/shapes> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+mcfsh:HasFunction
+  rdf:type owl:ObjectProperty ;
+.
+mcfsh:InsertOn
+  rdf:type owl:ObjectProperty ;
+.
+mcfsh:IsInvolvedIn
+  rdf:type owl:ObjectProperty ;
+.
+mcfsh:LeftSubClassOf
+  rdf:type owl:ObjectProperty ;
+.
+mcfsh:PartOf
+  rdf:type owl:ObjectProperty ;
+.
+mcfsh:RightSubClassOf
+  rdf:type owl:ObjectProperty ;
+.
